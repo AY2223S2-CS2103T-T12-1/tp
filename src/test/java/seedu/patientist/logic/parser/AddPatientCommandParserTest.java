@@ -56,23 +56,28 @@ public class AddPatientCommandParserTest {
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + PID_DESC_BOB + STATUS_DESC_BOB, new AddPatientCommand(expectedPatient));
+                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + PID_DESC_BOB + STATUS_DESC_BOB,
+                new AddPatientCommand(expectedPatient));
 
         // multiple names - last name accepted
         assertParseSuccess(parser, NAME_DESC_AMY + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + PID_DESC_BOB + STATUS_DESC_BOB, new AddPatientCommand(expectedPatient));
+                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + PID_DESC_BOB + STATUS_DESC_BOB,
+                new AddPatientCommand(expectedPatient));
 
         // multiple phones - last phone accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_AMY + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + PID_DESC_BOB + STATUS_DESC_BOB, new AddPatientCommand(expectedPatient));
+                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + PID_DESC_BOB + STATUS_DESC_BOB,
+                new AddPatientCommand(expectedPatient));
 
         // multiple emails - last email accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + PID_DESC_BOB + STATUS_DESC_BOB, new AddPatientCommand(expectedPatient));
+                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + PID_DESC_BOB + STATUS_DESC_BOB,
+                new AddPatientCommand(expectedPatient));
 
         // multiple addresses - last address accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_AMY
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + PID_DESC_BOB + STATUS_DESC_BOB, new AddPatientCommand(expectedPatient));
+                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + PID_DESC_BOB + STATUS_DESC_BOB,
+                new AddPatientCommand(expectedPatient));
 
         // multiple tags - all accepted
         Patient expectedPersonMultipleTags = new PatientBuilder(BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
